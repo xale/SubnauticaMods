@@ -1,6 +1,6 @@
 ﻿using BepInEx.Configuration;
 
-namespace Koi.Subnautica.ImprovedScanInfo;
+namespace Koi.Subnautica.ImprovedScanInfo.Config;
 
 /// <summary>
 /// To manage mod config.
@@ -8,7 +8,7 @@ namespace Koi.Subnautica.ImprovedScanInfo;
 public static class ModConfig
 {
     /// <summary>
-    /// The configuration entry to indicates if the mod must be enabled or not.
+    /// The configuration entry to indicate if the mod must be enabled or not.
     /// </summary>
     public static ConfigEntry<bool> ConfigEnabled { get; private set; }
 

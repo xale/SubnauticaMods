@@ -1,9 +1,10 @@
 ﻿using HarmonyLib;
+using Koi.Subnautica.ImprovedStorageInfo.Config;
 
 namespace Koi.Subnautica.ImprovedStorageInfo.Patches
 {
     /// <summary>
-    /// The root harmony patched for Escape Pod game object.
+    /// The root harmony patched for an Escape Pod game object.
     /// </summary>
     [HarmonyPatch(typeof(EscapePod))]
     public static class EscapePodPatches

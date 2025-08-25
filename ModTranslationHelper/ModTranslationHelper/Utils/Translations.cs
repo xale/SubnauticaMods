@@ -2,20 +2,20 @@
 using System.IO;
 using System.Linq;
 
-namespace Koi.Subnautica.ModTranslationHelper;
+namespace Koi.Subnautica.ModTranslationHelper.Utils;
 
 /// <summary>
 /// Represents all available translations.
 /// </summary>
-public class Translations
+internal class Translations
 {
     /// <summary>
-    /// The path of folder that contains all translations files.
+    /// The path of the folder that contains all translation files.
     /// </summary>
     private readonly string _languagesPath;
 
     /// <summary>
-    /// The translation file of currently selected language.
+    /// The translation file of the currently selected language.
     /// </summary>
     private TranslationFile _currentTranslationFile;
 
@@ -27,7 +27,7 @@ public class Translations
     /// <summary>
     /// Create a new instance.
     /// </summary>
-    /// <param name="languagesPath">The path of folder that contains all translations files</param>
+    /// <param name="languagesPath">The path of the folder that contains all translation files</param>
     public Translations(string languagesPath)
     {
         _languagesPath = languagesPath;
@@ -51,7 +51,7 @@ public class Translations
     /// Reload translation data.
     /// </summary>
     /// <param name="language">The name of language to reload (Reload the current if not specified)</param>
-    public void Reload(string language = null)
+    private void Reload(string language = null)
     {
         if (language == null)
         {
@@ -64,9 +64,9 @@ public class Translations
     }
 
     /// <summary>
-    /// Get the filepath of th current active translation file.
+    /// Get the filepath of the current active translation file.
     /// </summary>
-    /// <returns>The filepath of th current active translation file (NULL if no active translation file)</returns>
+    /// <returns>The filepath of the current active translation file (NULL if no active translation file)</returns>
     public string GetFilepath()
     {
         return _currentTranslationFile?.Filepath;
@@ -98,10 +98,11 @@ public class Translations
     /// Get the translation identified by the specified key.
     /// </summary>
     /// <param name="key">The key of translation</param>
-    /// <returns>The corresponding translated value (NULL if no translate data or key available)</returns>
-    public string GetTranslation(string key)
+    /// <param name="defaultValue">The default value to return if no translate data or key available</param>   
+    /// <returns>The corresponding translated value (or the default value if no available translation)</returns> 
+    public string GetTranslation(string key, string defaultValue)
     {
-        return _currentTranslationFile?.Get(key);
+        return _currentTranslationFile?.Get(key) ?? defaultValue;
     }
 
     /// <summary>

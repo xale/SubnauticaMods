@@ -1,4 +1,4 @@
-﻿namespace Koi.Subnautica.ImprovedStorageInfo;
+﻿namespace Koi.Subnautica.ImprovedStorageInfo.Config;
 
 /// <summary>
 /// Contains all mode constants.
@@ -8,7 +8,7 @@ public static class ModConstants
     public static class Meta
     {
         public const string Guid = "Koi.ImprovedStorageInfo";
-        public const string Version = "2.2.0";
+        public const string Version = "2.3.0";
         public const string Name = "Improved Storage Info";
     }
 

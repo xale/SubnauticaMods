@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Koi.Subnautica.ModTranslationHelper;
+namespace Koi.Subnautica.ModTranslationHelper.Utils;
 
 /// <summary>
 /// An utilitary class to manage strings.

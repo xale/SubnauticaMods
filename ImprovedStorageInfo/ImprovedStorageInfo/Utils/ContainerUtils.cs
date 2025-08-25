@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Koi.Subnautica.ImprovedStorageInfo.Config;
 
 namespace Koi.Subnautica.ImprovedStorageInfo.Utils;
 
@@ -14,18 +15,11 @@ public static class ContainerUtils
     /// <returns>The item container (or NULL if no one available)</returns>
     public static ItemsContainer GetItemContainer(StorageContainer storageContainer)
     {
-        var item = storageContainer.container;
-
-        if (item == null)
-        {
-            ModLogger.LogWarning("Container don't have an itemsContainer");
-        }
-
-        return item;
+        return storageContainer.container;
     }
 
     /// <summary>
-    /// Get the custom interact text corresponding to the specified item container.
+    /// Get the custom interacting text corresponding to the specified item container.
     /// </summary>
     /// <param name="itemContainer">The item container to check</param>
     /// <returns>The custom interact text</returns>
@@ -33,8 +27,6 @@ public static class ContainerUtils
     {
         if (itemContainer == null)
         {
-            ModLogger.LogWarning("Container is null, cannot set a custom interact text");
-
             return string.Empty;
         }
 
@@ -56,19 +48,28 @@ public static class ContainerUtils
     /// <summary>
     /// Get the corresponding translation key based on the specified container data.
     /// </summary>
-    /// <param name="containerIsEmpty">TRUE if the container is empty, FALSE othewise</param>
-    /// <param name="containerIsFull">TRUE if container is full, FALSE otherwise</param>
+    /// <param name="containerIsEmpty">TRUE if the container is empty, FALSE otherwise</param>
+    /// <param name="containerIsFull">TRUE if the container is full, FALSE otherwise</param>
     /// <returns>The corresponding translation</returns>
     private static string GetTranslation(bool containerIsEmpty, bool containerIsFull)
     {
         if (containerIsEmpty)
         {
-            return ModTranslations.ContainerEmptyTranslation;
+            return ModTranslations.TranslationsHandler.GetTranslation(
+                ModConstants.Translations.Keys.ContainerEmpty.Key,
+                ModConstants.Translations.Keys.ContainerEmpty.DefaultValue
+            );
         }
 
         return containerIsFull
-            ? ModTranslations.ContainerFullTranslation
-            : ModTranslations.ContainerNotEmptyTranslation;
+            ? ModTranslations.TranslationsHandler.GetTranslation(
+                ModConstants.Translations.Keys.ContainerFull.Key,
+                ModConstants.Translations.Keys.ContainerFull.DefaultValue
+            )
+            : ModTranslations.TranslationsHandler.GetTranslation(
+                ModConstants.Translations.Keys.ContainerNotEmpty.Key,
+                ModConstants.Translations.Keys.ContainerNotEmpty.DefaultValue
+            );
     }
 
     /// <summary>

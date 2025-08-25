@@ -1,4 +1,4 @@
-﻿namespace Koi.Subnautica.ImprovedScanInfo
+﻿namespace Koi.Subnautica.ImprovedScanInfo.Config
 {
     /// <summary>
     /// Contains all mode constants.
@@ -8,7 +8,7 @@
         public static class Meta
         {
             public const string Guid = "Koi.ImprovedScanInfo";
-            public const string Version = "1.2.0";
+            public const string Version = "1.3.0";
             public const string Name = "Improved Scan Info";
         }
 
@@ -40,7 +40,7 @@
                 public static class BlueprintAlreadySynthetized
                 {
                     public const string Key = "BlueprintAlreadySynthetized";
-                    public const string DefaultValue = "Blueprint already synthethized";
+                    public const string DefaultValue = "Blueprint already synthetized";
                 }
             }
         }

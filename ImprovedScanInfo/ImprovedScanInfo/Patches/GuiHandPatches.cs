@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using HarmonyLib;
+using Koi.Subnautica.ImprovedScanInfo.Config;
 
 namespace Koi.Subnautica.ImprovedScanInfo.Patches
 {
@@ -23,11 +24,12 @@ namespace Koi.Subnautica.ImprovedScanInfo.Patches
 
             if (entryData is not { isFragment: true } || !IsBlueprintAlreadySynthetized(scanTarget.techType)) return;
 
-            HandReticle.main.SetText(
-                HandReticle.TextType.HandSubscript,
-                ModTranslations.BlueprintAlreadySynthetized,
-                false
+            var translation = ModTranslations.TranslationsHandler.GetTranslation(
+                ModConstants.Translations.Keys.BlueprintAlreadySynthetized.Key,
+                ModConstants.Translations.Keys.BlueprintAlreadySynthetized.DefaultValue
             );
+
+            HandReticle.main.SetText(HandReticle.TextType.HandSubscript, translation, false);
         }
 
         /// <summary>

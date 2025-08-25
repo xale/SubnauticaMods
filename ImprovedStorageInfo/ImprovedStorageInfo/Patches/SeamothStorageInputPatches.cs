@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using Koi.Subnautica.ImprovedStorageInfo.Config;
 
 namespace Koi.Subnautica.ImprovedStorageInfo.Patches
 {

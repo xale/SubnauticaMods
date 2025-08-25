@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using LitJson;
 
-namespace Koi.Subnautica.ModTranslationHelper;
+namespace Koi.Subnautica.ModTranslationHelper.Utils;
 
 /// <summary>
 /// Represent a translation file data.
@@ -26,9 +26,9 @@ internal class TranslationFile
     public readonly string Language;
 
     /// <summary>
-    /// Create a new translation file data.
+    /// Create new data of a translation file.
     /// </summary>
-    /// <param name="filepath">The filepath of translation file</param>
+    /// <param name="filepath">The filepath of a translation file</param>
     public TranslationFile(string filepath)
     {
         Filepath = filepath;
@@ -43,8 +43,6 @@ internal class TranslationFile
     /// </summary>
     public void Reload()
     {
-        _data.Clear();
-
         JsonData jsonData;
 
         using (var streamReader = new StreamReader(Filepath))
@@ -59,6 +57,8 @@ internal class TranslationFile
                 return;
             }
         }
+
+        _data.Clear();
 
         foreach (var key in jsonData.Keys)
         {

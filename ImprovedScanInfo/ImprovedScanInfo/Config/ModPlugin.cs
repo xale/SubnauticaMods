@@ -1,7 +1,7 @@
 ﻿using BepInEx;
 using HarmonyLib;
 
-namespace Koi.Subnautica.ImprovedScanInfo
+namespace Koi.Subnautica.ImprovedScanInfo.Config
 {
     /// <summary>
     /// The root mod class.
@@ -16,9 +16,7 @@ namespace Koi.Subnautica.ImprovedScanInfo
 
         private void Awake()
         {
-            ModLogger.Init(Logger);
             ModConfig.Init(Config);
-            ModTranslations.UpdateInGameTranslations();
 
             Harmony.PatchAll();
         }

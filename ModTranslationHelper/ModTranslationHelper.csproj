@@ -34,10 +34,25 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="LitJSON">
-          <HintPath>$(STEAM_LIBRARY)\Subnautica\Subnautica_Data\Managed\LitJson.dll</HintPath>
-        </Reference>
         <Reference Include="System"/>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>$(STEAM_LIBRARY)\Subnautica\Subnautica_Data\Managed\Assembly-CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="BepInEx">
+            <HintPath>$(STEAM_LIBRARY)\Subnautica\BepInEx\core\BepInEx.dll</HintPath>
+        </Reference>
+        <Reference Include="0Harmony">
+            <HintPath>$(STEAM_LIBRARY)\Subnautica\BepInEx\core\0Harmony.dll</HintPath>
+        </Reference>
+        <Reference Include="LitJSON">
+            <HintPath>$(STEAM_LIBRARY)\Subnautica\Subnautica_Data\Managed\LitJson.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine">
+          <HintPath>$(STEAM_LIBRARY)\Subnautica\Subnautica_Data\Managed\UnityEngine.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>$(STEAM_LIBRARY)\Subnautica\Subnautica_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="ModTranslationHelper\**\*.cs"/>
